@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Lila Catering — Gastronomie Marocaine de Prestige · Nederland</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:   #080808;
+  --black2:  #0F0F0F;
+  --black3:  #161616;
+  --black4:  #1E1E1E;
+  --gold:    #C9A84C;
+  --gold2:   #E8C97A;
+  --gold3:   #F5E6B8;
+  --gold-dim: rgba(201,168,76,0.15);
+  --white:   #FFFFFF;
+  --cream:   #FAF6EE;
+  --gray:    #888880;
+  --gray2:   #555550;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ===== GRAIN TEXTURE ===== */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* ===== TOP STRIP ===== */
+.topstrip {
+  background: var(--gold);
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.ts-dot { opacity: 0.4; font-size: 0.4rem; }
+
+/* ===== NAV ===== */
+nav {
+  position: sticky;
+  top: 0; z-index: 500;
+  background: rgba(8,8,8,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nav-emblem {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.nav-text { line-height: 1.1; }
+.nav-text .small {
+  font-size: 0.55rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+}
+.nav-text .big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.nav-cta:active { background: var(--gold); color: var(--black); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem 5rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Radial glow */
+.hero-glow {
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Decorative rings */
+.hero-ring {
+  position: absolute;
+  border: 1px solid rgba(201,168,76,0.06);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ringpulse 8s ease-in-out infinite;
+}
+.ring1 { width: 320px; height: 320px; animation-delay: 0s; }
+.ring2 { width: 500px; height: 500px; animation-delay: 2s; }
+.ring3 { width: 700px; height: 700px; animation-delay: 4s; }
+
+@keyframes ringpulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.1; }
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+.orn-line { height: 1px; width: 40px; background: linear-gradient(90deg, transparent, var(--gold)); }
+.orn-line.rev { background: linear-gradient(90deg, var(--gold), transparent); }
+.orn-diamond {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+.orn-text {
+  font-size: 0.62rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 12vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+}
+
+.hero-title .italic {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 4vw, 1.8rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.hero-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  max-width: 340px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-gold-fill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--black);
+  padding: 0.9rem 1.8rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 1px;
+  flex: 1;
+  justify-content: center;
+  min-width: 140px;
+  transition: all 0.3s;
+}
+.btn-gold-fill:active { background: var(--gold2); }
+
+.btn-gold-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--gold);
+  padding: 0.9rem 1.8rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 1px;
+  flex: 1;
+  justify-content: center;
+  min-width: 140px;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.4);
+  animation: scrollbounce 3s infinite;
+}
+@keyframes scrollbounce {
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(6px)}
+}
+
+/* ===== MARQUEE ===== */
+.marquee-wrap {
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  overflow: hidden;
+  padding: 0.9rem 0;
+  background: var(--black2);
+}
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+.mitem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.6);
+  white-space: nowrap;
+}
+.mdot { color: rgba(201,168,76,0.25); font-size: 0.35rem; }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ===== SECTION ===== */
+.section { padding: 4rem 1.5rem; }
+.section-dark { background: var(--black2); }
+.section-darker { background: var(--black3); }
+
+.sec-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.so-line { height: 1px; width: 30px; background: var(--gold); opacity: 0.4; }
+.so-text {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
+}
+.sec-title .gold { color: var(--gold); font-style: italic; }
+
+.sec-sub {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.8;
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+
+/* ===== GALLERY GRID ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.gallery-item {
+  background: var(--black4);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.gallery-item.tall { grid-row: span 2; aspect-ratio: auto; }
+
+.gallery-emoji {
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--black3) 0%, var(--black4) 100%);
+  border: 1px solid rgba(201,168,76,0.08);
+  padding: 1rem;
+  text-align: center;
+}
+
+.gallery-icon { font-size: 3rem; }
+.gallery-label {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.5);
+  font-weight: 400;
+}
+
+/* ===== SERVICES CARDS ===== */
+.services-list { display: flex; flex-direction: column; gap: 1px; }
+
+.service-item {
+  background: var(--black3);
+  border: 1px solid rgba(201,168,76,0.08);
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transition: transform 0.3s;
+}
+
+.service-item:active::before { transform: scaleY(1); }
+
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 40px;
+}
+
+.service-content { flex: 1; }
+
+.service-emoji { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+
+.service-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
+
+.service-desc {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ===== MENU SHOWCASE ===== */
+.menu-cards { display: flex; flex-direction: column; gap: 0.8rem; }
+
+.menu-card {
+  background: var(--black3);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 2px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+}
+
+.menu-icon-box {
+  width: 56px; height: 56px;
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  background: rgba(201,168,76,0.05);
+}
+
+.menu-info { flex: 1; }
+
+.menu-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.3px;
+}
+
+.menu-desc {
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.menu-badge {
+  font-size: 0.58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 0.2rem 0.5rem;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ===== EVENTS ===== */
+.events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+
+.event-card {
+  background: var(--black3);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 2px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.event-icon { font-size: 2rem; display: block; margin-bottom: 0.8rem; }
+
+.event-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+
+.event-desc {
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-list { display: flex; flex-direction: column; gap: 1rem; }
+
+.testimonial {
+  background: var(--black3);
+  border: 1px solid rgba(201,168,76,0.08);
+  border-radius: 2px;
+  padding: 1.8rem 1.5rem;
+  position: relative;
+}
+
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  color: rgba(201,168,76,0.08);
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.testimonial-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
+
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.author-avatar {
+  width: 36px; height: 36px;
+  background: var(--gold-dim);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.author-name {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.author-event {
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: var(--gray);
+}
+
+/* ===== STATS ===== */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.stat-cell {
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.1);
+  position: relative;
+}
+.stat-cell:last-child { border-right: none; }
+
+.stat-cell::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 0.3rem;
+  font-weight: 400;
+}
+
+/* ===== LOCATION ===== */
+.location-card {
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.map-visual {
+  background: linear-gradient(160deg, #0a0a0a 0%, #161616 100%);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 35px 35px;
+}
+
+.map-circles {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.map-circle {
+  position: absolute;
+  border: 1px solid rgba(201,168,76,0.06);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.mc1 { width: 100px; height: 100px; }
+.mc2 { width: 180px; height: 180px; }
+.mc3 { width: 260px; height: 260px; }
+
+.map-pin {
+  font-size: 3rem;
+  position: relative;
+  z-index: 2;
+  display: block;
+  animation: mappin 3s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+}
+@keyframes mappin {
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-10px) scale(1.05)}
+}
+
+.map-city {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gold);
+  position: relative; z-index: 2;
+  letter-spacing: 2px;
+}
+
+.map-country {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gray);
+  position: relative; z-index: 2;
+  margin-top: 0.3rem;
+}
+
+.location-info { padding: 1.5rem; }
+
+.loc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.06);
+}
+.loc-item:last-child { border-bottom: none; }
+
+.loc-icon {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.loc-label {
+  font-size: 0.58rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+  font-weight: 400;
+}
+
+.loc-value {
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+}
+
+.maps-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  border-radius: 1px;
+  transition: background 0.3s;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section {
+  background: var(--black2);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-glow {
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cta-label {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  position: relative; z-index: 2;
+}
+
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  position: relative; z-index: 2;
+  line-height: 1.1;
+}
+
+.cta-title .gold { color: var(--gold); font-style: italic; }
+
+.cta-sub {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  position: relative; z-index: 2;
+}
+
+.cta-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1rem 2.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 1px;
+  position: relative; z-index: 2;
+  width: 100%; max-width: 320px;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(201,168,76,0.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(201,168,76,0.08);
+  padding: 3rem 1.5rem 7rem;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: 0.3rem;
+  letter-spacing: 2px;
+}
+
+.footer-tagline {
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gray2);
+  margin-bottom: 1.5rem;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201,168,76,0.3), transparent);
+  margin-bottom: 1.5rem;
+}
+
+.footer-links { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; }
+.footer-links a {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.35);
+  display: flex; align-items: center; gap: 0.6rem;
+  letter-spacing: 0.3px;
+}
+.footer-links a span { color: var(--gold); font-size: 0.7rem; }
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.15);
+  line-height: 1.8;
+}
+.footer-bottom em { color: var(--gold); font-style: normal; }
+
+/* ===== FLOAT BUTTONS ===== */
+.float-wrap {
+  position: fixed;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 600;
+  display: flex;
+  gap: 0.6rem;
+  width: calc(100% - 2.4rem);
+  max-width: 420px;
+}
+
+.fbtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.95rem;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.fbtn-call { background: var(--gold); color: var(--black); }
+.fbtn-wa { background: #25D366; color: var(--white); }
+
+/* ===== RESPONSIVE ===== */
+@media(min-width:600px){
+  .events-grid { grid-template-columns: repeat(4, 1fr); }
+  .section { padding: 5rem 2rem; }
+  .hero { padding: 5rem 2rem 6rem; }
+  .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media(min-width:900px){
+  nav { padding: 1.2rem 3rem; }
+  .section { padding: 6rem 3rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="topstrip">
+  <span>✦ Gastronomie Marocaine</span>
+  <span class="ts-dot">◆</span>
+  <span>Mariages & Événements</span>
+  <span class="ts-dot">◆</span>
+  <span>Nederland ✦</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-emblem">🌙</div>
+    <div class="nav-text">
+      <div class="small">Traiteur de Prestige</div>
+      <div class="big">Lila Catering</div>
+    </div>
+  </div>
+  <a href="tel:+31203635478" class="nav-cta">✦ Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-ring ring1"></div>
+  <div class="hero-ring ring2"></div>
+  <div class="hero-ring ring3"></div>
+  <div class="hero-content">
+    <div class="hero-ornament">
+      <div class="orn-line"></div>
+      <div class="orn-diamond"></div>
+      <div class="orn-text">Depuis des années · Nederland</div>
+      <div class="orn-diamond"></div>
+      <div class="orn-line rev"></div>
+    </div>
+    <h1 class="hero-title">
+      Lila<br><span class="italic">Catering</span>
+    </h1>
+    <p class="hero-subtitle">L'Art de Recevoir à la Marocaine</p>
+    <p class="hero-desc">
+      Gastronomie marocaine authentique pour vos mariages, fiançailles et événements privés aux Pays-Bas. Une expérience culinaire inoubliable.
+    </p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-gold-fill">✦ Notre Menu</a>
+      <a href="#contact" class="btn-gold-outline">Demande de Devis</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Découvrir</span>
+    <span>↓</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="mitem">✦ Mariage <span class="mdot">◆</span></span>
+    <span class="mitem">Couscous Royal <span class="mdot">◆</span></span>
+    <span class="mitem">Briouates <span class="mdot">◆</span></span>
+    <span class="mitem">✦ Fiançailles <span class="mdot">◆</span></span>
+    <span class="mitem">Tajines <span class="mdot">◆</span></span>
+    <span class="mitem">Pastilla <span class="mdot">◆</span></span>
+    <span class="mitem">✦ Événements Privés <span class="mdot">◆</span></span>
+    <span class="mitem">Desserts Orientaux <span class="mdot">◆</span></span>
+    <span class="mitem">Présentation de Prestige <span class="mdot">◆</span></span>
+    <span class="mitem">✦ Mariage <span class="mdot">◆</span></span>
+    <span class="mitem">Couscous Royal <span class="mdot">◆</span></span>
+    <span class="mitem">Briouates <span class="mdot">◆</span></span>
+    <span class="mitem">✦ Fiançailles <span class="mdot">◆</span></span>
+    <span class="mitem">Tajines <span class="mdot">◆</span></span>
+    <span class="mitem">Pastilla <span class="mdot">◆</span></span>
+    <span class="mitem">✦ Événements Privés <span class="mdot">◆</span></span>
+    <span class="mitem">Desserts Orientaux <span class="mdot">◆</span></span>
+    <span class="mitem">Présentation de Prestige <span class="mdot">◆</span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="section section-dark">
+  <div class="stats-row">
+    <div class="stat-cell">
+      <span class="stat-num">★ 5</span>
+      <div class="stat-label">Qualité</div>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">100%</span>
+      <div class="stat-label">Halal</div>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-num">NL</span>
+      <div class="stat-label">Nederland</div>
+    </div>
+  </div>
+
+  <div class="sec-ornament">
+    <div class="so-line"></div>
+    <div class="so-text">Notre Galerie</div>
+  </div>
+  <h2 class="sec-title">Chaque Plat,<br>une <span class="gold">Œuvre d'Art</span></h2>
+  <p class="sec-sub">Des présentations somptueuses qui émerveillent vos invités avant même la première bouchée.</p>
+
+  <div class="gallery">
+    <div class="gallery-item tall">
+      <div class="gallery-emoji">
+        <span class="gallery-icon">🍽️</span>
+        <span class="gallery-label">Entrées Royales</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-emoji">
+        <span class="gallery-icon">🦐</span>
+        <span class="gallery-label">Fruits de Mer</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-emoji">
+        <span class="gallery-icon">🌾</span>
+        <span class="gallery-label">Couscous</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-emoji">
+        <span class="gallery-icon">🍰</span>
+        <span class="gallery-label">Desserts</span>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-emoji">
+        <span class="gallery-icon">💐</span>
+        <span class="gallery-label">Table Dressée</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section section-darker" id="menu">
+  <div class="sec-ornament">
+    <div class="so-line"></div>
+    <div class="so-text">Notre Gastronomie</div>
+  </div>
+  <h2 class="sec-title">Une <span class="gold">Cuisine</span><br>d'Exception</h2>
+  <p class="sec-sub">Des recettes authentiques préparées avec passion, présentées avec une élégance incomparable.</p>
+
+  <div class="menu-cards">
+    <div class="menu-card">
+      <div class="menu-icon-box">🦐</div>
+      <div class="menu-info">
+        <div class="menu-name">Plateau Royal aux Crevettes</div>
+        <div class="menu-desc">Crevettes géantes sur lit de salade, présentation sculptée sur plateau d'argent</div>
+      </div>
+      <div class="menu-badge">Signature</div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-icon-box">🌾</div>
+      <div class="menu-info">
+        <div class="menu-name">Couscous aux 7 Légumes</div>
+        <div class="menu-desc">Couscous traditionnel avec tajines variés, servi dans des plats en terre cuite dorée</div>
+      </div>
+      <div class="menu-badge">Traditionnel</div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-icon-box">🍖</div>
+      <div class="menu-info">
+        <div class="menu-name">Méchoui & Grillades</div>
+        <div class="menu-desc">Agneau rôti entier, côtelettes grillées, olives et tomates cerises sur plateau doré</div>
+      </div>
+      <div class="menu-badge">Prestige</div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-icon-box">🥗</div>
+      <div class="menu-info">
+        <div class="menu-name">Tour de Salades Mixtes</div>
+        <div class="menu-desc">Présentation en étages avec 8+ salades variées sur plateau argenté monumental</div>
+      </div>
+      <div class="menu-badge">Art Culinaire</div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-icon-box">🍰</div>
+      <div class="menu-info">
+        <div class="menu-name">Desserts avec Fumée Froide</div>
+        <div class="menu-desc">Macarons, fruits de saison, pâtisseries orientales — service spectaculaire avec azote</div>
+      </div>
+      <div class="menu-badge">Spectacle</div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-icon-box">🍍</div>
+      <div class="menu-info">
+        <div class="menu-name">Plateau de Fruits Sculptés</div>
+        <div class="menu-desc">Ananas, mangue, fruits de la passion, présentés avec élégance et art floral</div>
+      </div>
+      <div class="menu-badge">Exclusif</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section section-dark">
+  <div class="sec-ornament">
+    <div class="so-line"></div>
+    <div class="so-text">Nos Événements</div>
+  </div>
+  <h2 class="sec-title">Pour Chaque<br><span class="gold">Moment Précieux</span></h2>
+  <p class="sec-sub">Nous transformons chaque célébration en souvenir inoubliable.</p>
+
+  <div class="events-grid">
+    <div class="event-card">
+      <span class="event-icon">💍</span>
+      <div class="event-title">Mariages</div>
+      <div class="event-desc">Buffets somptueux pour votre plus beau jour</div>
+    </div>
+    <div class="event-card">
+      <span class="event-icon">💐</span>
+      <div class="event-title">Fiançailles</div>
+      <div class="event-desc">Soirées intimes et élégantes</div>
+    </div>
+    <div class="event-card">
+      <span class="event-icon">🎂</span>
+      <div class="event-title">Anniversaires</div>
+      <div class="event-desc">Célébrations mémorables</div>
+    </div>
+    <div class="event-card">
+      <span class="event-icon">🏛️</span>
+      <div class="event-title">Événements Privés</div>
+      <div class="event-desc">Sur mesure pour tout type d'occasion</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-darker">
+  <div class="sec-ornament">
+    <div class="so-line"></div>
+    <div class="so-text">Témoignages</div>
+  </div>
+  <h2 class="sec-title">Ce Que Disent<br>nos <span class="gold">Clients</span></h2>
+
+  <div class="testimonials-list">
+    <div class="testimonial">
+      <div class="quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">Une présentation absolument magnifique! Nos invités n'en revenaient pas. Le couscous était divin et les plateaux de crevettes, un vrai spectacle.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">Y</div>
+        <div>
+          <div class="author-name">Yasmine B.</div>
+          <div class="author-event">Mariage · Amsterdam</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">Mention spéciale pour le traiteur très sympathique. La qualité des plats était exceptionnelle, digne d'un grand restaurant marocain.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Sarah K.</div>
+          <div class="author-event">Fiançailles · Rotterdam</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="quote-mark">"</div>
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">Les desserts avec la fumée froide ont créé un moment magique. Tout le monde a adoré. Je recommande Lila Catering les yeux fermés!</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">N</div>
+        <div>
+          <div class="author-name">Nora A.</div>
+          <div class="author-event">Anniversaire · Den Haag</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section section-dark" id="contact">
+  <div class="sec-ornament">
+    <div class="so-line"></div>
+    <div class="so-text">Contact & Localisation</div>
+  </div>
+  <h2 class="sec-title">Nous <span class="gold">Trouver</span></h2>
+
+  <div class="location-card">
+    <div class="map-visual">
+      <div class="map-grid-lines"></div>
+      <div class="map-circles">
+        <div class="map-circle mc1"></div>
+        <div class="map-circle mc2"></div>
+        <div class="map-circle mc3"></div>
+      </div>
+      <span class="map-pin">📍</span>
+      <div class="map-city">Watergang</div>
+      <div class="map-country">Noord-Holland · Nederland 🇳🇱</div>
+    </div>
+    <div class="location-info">
+      <div class="loc-item">
+        <div class="loc-icon">📍</div>
+        <div>
+          <div class="loc-label">Adresse</div>
+          <div class="loc-value">De Dollard 11<br>1454 AT Watergang, Nederland</div>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-icon">📞</div>
+        <div>
+          <div class="loc-label">Téléphone</div>
+          <div class="loc-value">+31 20 363 5478</div>
+        </div>
+      </div>
+      <div class="loc-item">
+        <div class="loc-icon">🕐</div>
+        <div>
+          <div class="loc-label">Disponibilité</div>
+          <div class="loc-value">Tous les jours · 09:00 – 22:00<br>Sur rendez-vous pour les devis</div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:0 1.5rem 1.5rem;">
+      <a href="https://maps.google.com/?q=De+Dollard+11,+1454+AT+Watergang" target="_blank" class="maps-btn">
+        ✦ Ouvrir dans Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="cta-label">✦ Réservez Votre Événement</div>
+  <h2 class="cta-title">Votre <span class="gold">Mariage</span><br>Mérite le Meilleur</h2>
+  <p class="cta-sub">Contactez-nous pour un devis personnalisé gratuit</p>
+  <a href="tel:+31203635478" class="cta-phone">📞 +31 20 363 5478</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Lila Catering</div>
+  <div class="footer-tagline">Gastronomie Marocaine de Prestige · Nederland</div>
+  <div class="footer-divider"></div>
+  <div class="footer-links">
+    <a href="tel:+31203635478"><span>📞</span> +31 20 363 5478</a>
+    <a href="#"><span>📍</span> De Dollard 11, 1454 AT Watergang</a>
+    <a href="#"><span>🕐</span> Tous les jours: 09:00 – 22:00</a>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Lila Catering · Tous droits réservés · Nederland</div>
+    <div>Site créé par <em>Norex Media</em> 🇲🇦</div>
+  </div>
+</footer>
+
+<!-- FLOAT -->
+<div class="float-wrap">
+  <a href="tel:+31203635478" class="fbtn fbtn-call">📞 Appeler</a>
+  <a href="https://wa.me/31203635478" class="fbtn fbtn-wa">💬 WhatsApp</a>
+</div>
+
+</body>
+</html>
